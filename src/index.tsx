@@ -20,16 +20,24 @@ const store = new RootStore({ request: new Request(axiosInstance), navigate });
 
 const rootElement = document.getElementById('root');
 
-const render = (Component: any) => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <Features features={features}>
-        <Component />
-      </Features>
-    </Provider>,
-    rootElement,
-  );
-};
+const render = (Component: any) =>
+  rootElement && rootElement.hasChildNodes()
+    ? ReactDOM.hydrate(
+        <Provider store={store}>
+          <Features features={features}>
+            <Component />
+          </Features>
+        </Provider>,
+        rootElement,
+      )
+    : ReactDOM.render(
+        <Provider store={store}>
+          <Features features={features}>
+            <Component />
+          </Features>
+        </Provider>,
+        rootElement,
+      );
 
 render(App);
 
@@ -40,7 +48,5 @@ if (module.hot) {
   });
 }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// https://bit.ly/CRA-PWA
 serviceWorker.unregister();

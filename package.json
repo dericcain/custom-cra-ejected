@@ -2,11 +2,6 @@
   "name": "ca-member-portal",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "daxko-react-scripts": "0.20.0",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0"
-  },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build": "react-scripts build",
@@ -15,10 +10,51 @@
     "cy:headless": "cypress run",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .ts,.tsx ./src --fix",
+    "postbuild": "react-snap",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "test:e2e": "start-server-and-test start http://localhost:3000 cy",
     "test:e2e:headless": "start-server-and-test start http://localhost:3000 cy:headless"
+  },
+  "dependencies": {
+    "@reach/router": "^1.2.1",
+    "axios": "^0.19.0",
+    "daxko-react-scripts": "0.21.0",
+    "mobx": "^5.14.2",
+    "mobx-react": "^6.1.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-tiny-feature-switch": "^1.1.3",
+    "react-tiny-i18n": "^0.2.0",
+    "serve": "^11.2.0",
+    "tiny-mobx-form": "^0.6.2",
+    "tiny-mobx-form-react": "^0.4.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@testing-library/cypress": "^5.0.2",
+    "@testing-library/jest-dom": "^4.2.3",
+    "@testing-library/react": "^9.3.1",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.21",
+    "@types/jest-axe": "^3.2.1",
+    "@types/node": "^12.12.4",
+    "@types/reach__router": "^1.2.6",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "@types/webpack-env": "^1.14.1",
+    "cross-env": "^6.0.3",
+    "cypress": "^3.6.0",
+    "eslint-plugin-cypress": "^2.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
+    "jest-axe": "^3.2.0",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "sass": "^1.23.3",
+    "source-map-explorer": "^2.1.0",
+    "start-server-and-test": "^1.10.6",
+    "typescript": "^3.7.2"
   },
   "eslintConfig": {
     "extends": [
